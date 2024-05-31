@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="99e67d4f8efd4a7097647c29feeed16e" Name="Diagram1">
+      <Diagram DiagramId="a12094f0139f42359e792a381f39da11" Name="Diagram1">
         <EntityTypeShape EntityType="PhonebookDatabaseModel.Contacts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PhonebookDatabaseModel.Users" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="PhonebookDatabaseModel.FK_Contacts_Users" ManuallyRouted="false" />

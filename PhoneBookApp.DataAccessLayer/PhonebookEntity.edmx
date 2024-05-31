@@ -86,7 +86,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PhonebookDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contacts" EntityType="Self.Contacts" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_Contacts_Users" Association="Self.FK_Contacts_Users">
@@ -99,7 +99,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PhonebookDatabaseModelStoreContainer" CdmEntityContainer="PhonebookDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="PhonebookDatabaseModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="PhonebookDatabaseModel.Contacts">
               <MappingFragment StoreEntitySet="Contacts">

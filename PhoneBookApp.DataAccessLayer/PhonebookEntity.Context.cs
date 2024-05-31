@@ -13,10 +13,10 @@ namespace PhoneBookApp.DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PhonebookDatabaseEntities : DbContext
+    public partial class PhoneBookEntities : DbContext
     {
-        public PhonebookDatabaseEntities()
-            : base("name=PhonebookDatabaseEntities")
+        public PhoneBookEntities()
+            : base("name=Entities")
         {
         }
     
