@@ -49,5 +49,34 @@ namespace PhoneBookApp.BusinessLogicLayer
                 throw;
             }
         }
+
+        public (bool Status, string Message, UserDto UserInfo) LoginUser(LoginDto loginDto)
+        {
+            try
+            {
+                var userExist = _user.FindBy(item => item.EmailAddress == loginDto.EmailAddress && (bool)!item.IsDeleted).FirstOrDefault();
+                if (userExist == null)
+                {
+                    return (false, "Invalid email address", null);
+                }
+                if (userExist.Password != Authentication.HashPasswordWithMD5(loginDto.Password))
+                {
+                    return (false, "Invalid password", null);
+                }
+                var userDto = new UserDto
+                {
+                    EmailAddress = userExist.EmailAddress,
+                    NickName = userExist.NickName,
+                    Id = userExist.Id,
+                };
+
+                return (true, "", userDto);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

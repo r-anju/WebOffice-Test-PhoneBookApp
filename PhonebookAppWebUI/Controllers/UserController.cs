@@ -42,5 +42,27 @@ namespace PhonebookAppWebUI.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Login(LoginDto loginDto)
+        {
+            var userRegResponse = _userBll.LoginUser(loginDto);
+            if (!userRegResponse.Status)
+            {
+                ViewBag.Success = false;
+                ViewBag.Message = userRegResponse.Message;
+                return View("Index","Home");
+            }
+            ViewBag.Success = true;
+            Session["UserId"] = userRegResponse.UserInfo.Id;
+            Session["NickName"] = userRegResponse.UserInfo.NickName;
+            Session["EmailAddress"] = userRegResponse.UserInfo.EmailAddress;
+            return RedirectToAction("Index", "Contact");
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -9,15 +9,15 @@ $('#registerUser').validate({
         },
         EmailAddress: {
             required: true,
-            email:true,
+            email: true,
         },
         Password: {
-            required:true,
+            required: true,
 
         },
         ConfirmPassword: {
             required: true,
-            equalTo:'#password'
+            equalTo: '#password'
         }
     },
     messages: {
@@ -36,6 +36,32 @@ $('#registerUser').validate({
         ConfirmPassword: {
             required: "Re enter password",
             equalTo: 'Passwords not matching'
+        }
+    }
+});
+
+$('#loginForm').validate({
+    errorClass: "text-danger",
+    rules: {
+
+        EmailAddress: {
+            required: true,
+            email: true,
+        },
+        Password: {
+            required: true,
+
+        }
+    },
+    messages: {
+
+        EmailAddress: {
+            required: "Enter your email address",
+            email: "Please enter a valid email address",
+        },
+        Password: {
+            required: "Enter a new password",
+
         }
     }
 });

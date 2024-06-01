@@ -54,6 +54,7 @@
     <Compile Include="Contacts.cs">
       <DependentUpon>PhonebookEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contact\ContactDal.cs" />
     <Compile Include="Core\GenericDal.cs" />
     <Compile Include="Core\UnitOfWork.cs" />
     <Compile Include="PhonebookEntity.Context.cs">
@@ -97,9 +98,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contact\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="PhonebookEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

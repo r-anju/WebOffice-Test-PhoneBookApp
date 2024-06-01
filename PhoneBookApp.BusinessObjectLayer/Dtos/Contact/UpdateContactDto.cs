@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PhoneBookApp.BusinessObjectLayer.Dtos
 {
-    public class UserDto
+    public class UpdateContactDto : CreateContactDto
     {
         public long Id { get; set; }
-        public string EmailAddress { get; set; }
-        public string NickName { get; set; }
+        public long UserReferenceId { get; set; }
     }
 }

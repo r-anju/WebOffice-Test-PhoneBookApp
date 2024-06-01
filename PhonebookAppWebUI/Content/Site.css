@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.card{
+    background-color:#fff;
+    border:1px solid black;
+}
+.card-body{
+    padding: 2rem 1rem;
+}
