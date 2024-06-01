@@ -1,0 +1,11 @@
+﻿<div class="mt-3">
+    @if (ViewBag?.Success != null && !ViewBag?.Success)
+    {
+        <div class="alert alert-danger" role="alert">@ViewBag.Message</div>
+    }
+    @if (ViewBag?.Success != null && ViewBag?.Success)
+    {
+        <div class="alert alert-success" role="alert">@ViewBag.Message</div>
+    }
+
+</div>

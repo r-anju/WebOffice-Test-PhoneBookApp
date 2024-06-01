@@ -21,10 +21,11 @@ namespace PhoneBookApp.DataAccessLayer
         }
     
         public long Id { get; set; }
-        public string RegistrationId { get; set; }
+        public string NickName { get; set; }
+        public string EmailAddress { get; set; }
         public string Password { get; set; }
-        public string RecoveryEmail { get; set; }
         public string OneTimePassword { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacts> Contacts { get; set; }

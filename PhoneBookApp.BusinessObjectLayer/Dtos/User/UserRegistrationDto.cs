@@ -8,8 +8,8 @@ namespace PhoneBookApp.BusinessObjectLayer.Dtos
 {
     public class UserRegistrationDto
     {
-        public string RegistrationId { get; set; }
+        public string EmailAddress { get; set; }
         public string Password { get; set; }
-        public string RecoveryEmail { get; set; }
+        public string NickName { get; set; }
     }
 }

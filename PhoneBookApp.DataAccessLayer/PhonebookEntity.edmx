@@ -21,10 +21,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RegistrationId" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="64" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="128" />
           <Property Name="Password" Type="nvarchar" MaxLength="64" />
-          <Property Name="RecoveryEmail" Type="nvarchar" MaxLength="128" />
           <Property Name="OneTimePassword" Type="nvarchar" MaxLength="8" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <Association Name="FK_Contacts_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -68,10 +69,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RegistrationId" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NickName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="RecoveryEmail" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="OneTimePassword" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Users" FromRole="Users" ToRole="Contacts" />
         </EntityType>
         <Association Name="FK_Contacts_Users">
@@ -116,10 +118,11 @@
             <EntityTypeMapping TypeName="PhonebookDatabaseModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="RecoveryEmail" ColumnName="RecoveryEmail" />
                 <ScalarProperty Name="OneTimePassword" ColumnName="OneTimePassword" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

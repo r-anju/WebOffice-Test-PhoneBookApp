@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,29 +52,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contacts.cs">
-      <DependentUpon>PhoneBookEntity.tt</DependentUpon>
+      <DependentUpon>PhonebookEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Core\GenericDal.cs" />
     <Compile Include="Core\UnitOfWork.cs" />
-    <Compile Include="PhoneBookEntity.Context.cs">
+    <Compile Include="PhonebookEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookEntity.Context.tt</DependentUpon>
+      <DependentUpon>PhonebookEntity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhoneBookEntity.cs">
+    <Compile Include="PhonebookEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookEntity.tt</DependentUpon>
+      <DependentUpon>PhonebookEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhoneBookEntity.Designer.cs">
+    <Compile Include="PhonebookEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookEntity.edmx</DependentUpon>
+      <DependentUpon>PhonebookEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs">
-      <DependentUpon>PhoneBookEntity.tt</DependentUpon>
+      <DependentUpon>PhonebookEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="User\UserDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhoneBookApp.BusinessObjectLayer\PhoneBookApp.BusinessObjectLayer.csproj">
@@ -84,32 +86,31 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="PhoneBookEntity.edmx">
+    <EntityDeploy Include="PhonebookEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PhoneBookEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>PhonebookEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="PhoneBookEntity.edmx.diagram">
-      <DependentUpon>PhoneBookEntity.edmx</DependentUpon>
+    <None Include="PhonebookEntity.edmx.diagram">
+      <DependentUpon>PhonebookEntity.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PhoneBookEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneBookEntity.edmx</DependentUpon>
-      <LastGenOutput>PhoneBookEntity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PhoneBookEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneBookEntity.edmx</DependentUpon>
-      <LastGenOutput>PhoneBookEntity.cs</LastGenOutput>
-    </Content>
+    <Folder Include="Contact\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contact\" />
-    <Folder Include="User\" />
+    <Content Include="PhonebookEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhonebookEntity.edmx</DependentUpon>
+      <LastGenOutput>PhonebookEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PhonebookEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhonebookEntity.edmx</DependentUpon>
+      <LastGenOutput>PhonebookEntity.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

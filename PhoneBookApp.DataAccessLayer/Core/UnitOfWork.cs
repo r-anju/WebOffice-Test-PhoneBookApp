@@ -1,32 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Transactions;
 
 namespace PhoneBookApp.DataAccessLayer.Core
 {
     public class UnitOfWork
     {
         private readonly PhoneBookEntities _context;
-        public UnitOfWork()
+        public UnitOfWork(PhoneBookEntities context)
         {
-            _context = new PhoneBookEntities();
+            _context = context;
         }
         public int Save()
         {
-            using (var transaction = _context.Database.BeginTransaction())
+            using (TransactionScope scope = new TransactionScope())
             {
                 try
                 {
                     
                     var retValu = _context.SaveChanges();
-                    transaction.Commit();
+                    scope.Complete();
                     return retValu;
                 }
                 catch (Exception )
                 {
-                    transaction.Dispose();
+                    scope.Dispose();
                     return 0;
                 }
             }

@@ -11,7 +11,7 @@ namespace PhoneBookApp.DataAccessLayer.Core
 {
     public class GenericDal<TC> where TC : class
     {
-        private PhoneBookEntities Context;
+        public PhoneBookEntities Context;
         private IDbSet<TC> DbSet;
 
         public GenericDal()

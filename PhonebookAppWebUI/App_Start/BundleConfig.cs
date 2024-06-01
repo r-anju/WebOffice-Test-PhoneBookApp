@@ -25,6 +25,8 @@ namespace PhonebookAppWebUI
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/custom-validate").Include(
+                "~/Scripts/CustomValidate.js"));
         }
     }
 }
