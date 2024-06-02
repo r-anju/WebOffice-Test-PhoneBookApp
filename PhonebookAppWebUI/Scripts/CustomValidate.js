@@ -40,6 +40,23 @@ $('#registerUser').validate({
     }
 });
 
+$('#forgotPassword').validate({
+    errorClass: "text-danger",
+    rules: {
+
+        EmailAddress: {
+            required: true,
+            email: true,
+        },
+    },
+    messages: {
+
+        EmailAddress: {
+            required: "Enter your email address",
+            email: "Please enter a valid email address",
+        },
+    }
+});
 $('#loginForm').validate({
     errorClass: "text-danger",
     rules: {
@@ -123,6 +140,46 @@ $('#updateContact').validate({
         PhoneNumber: {
             required: "Enter phone number",
 
+        }
+    }
+});
+$('#verificationOTP').validate({
+    errorClass: "text-danger",
+    rules: {
+
+        VerificationKey: {
+            required: true,
+
+        }
+    },
+    messages: {
+
+        VerificationKey: {
+            required: "Please enter verification code",
+
+        }
+    }
+});
+$('#resetPassword').validate({
+    errorClass: "text-danger",
+    rules: {
+        Password: {
+            required: true,
+
+        },
+        ConfirmPassword: {
+            required: true,
+            equalTo: '#password'
+        }
+    },
+    messages: {
+        Password: {
+            required: "Enter a new password",
+
+        },
+        ConfirmPassword: {
+            required: "Re enter password",
+            equalTo: 'Passwords not matching'
         }
     }
 });

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Authentication.cs" />
+    <Compile Include="Common\OTPHelper.cs" />
     <Compile Include="Common\ValidationAuthorize.cs" />
     <Compile Include="Dtos\Contact\ContactDto.cs" />
     <Compile Include="Dtos\Contact\CreateContactDto.cs" />

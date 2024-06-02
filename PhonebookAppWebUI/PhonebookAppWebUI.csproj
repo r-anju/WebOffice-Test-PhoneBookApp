@@ -180,6 +180,8 @@
     <Content Include="Views\Contact\Add.cshtml" />
     <Content Include="Views\Contact\Delete.cshtml" />
     <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\User\AccountVerification.cshtml" />
+    <Content Include="Views\User\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

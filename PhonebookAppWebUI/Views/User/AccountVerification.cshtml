@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "AccountVerification";
+    Layout = "~/Views/Shared/_AuthenticationLayout.cshtml";
+}
+
+<h2>AccountVerification</h2>
+@using (Html.BeginForm("ResetPassword", "User", FormMethod.Post, new { @Id = "verificationOTP" }))
+{
+    <div class="form-group">
+        <label for="VerificationKey">Enter OTP </label>
+        <input name="VerificationKey" type="text" class="form-control" id="VerificationKey" placeholder="VerificationKey">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    @Html.Partial("~/Views/AlertPartial.cshtml")
+}
+
+

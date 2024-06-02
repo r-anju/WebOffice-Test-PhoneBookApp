@@ -43,6 +43,49 @@ namespace PhonebookAppWebUI.Controllers
             return View();
         }
         [HttpPost]
+        public ActionResult AccountVerification(string EmailAddress)
+        {
+            var response = _userBll.FindAccountByEmailAndSendOTP(EmailAddress);
+            ViewBag.Success = response.Status;
+            ViewBag.Message = response.Message;
+            if (response.Status)
+            {
+                Session["EmailAddress"] = EmailAddress;
+                return View();
+            }
+            return RedirectToAction("ForgotPassword", "User");
+        }
+        [HttpPost]
+        public ActionResult ResetPassword(string VerificationKey)
+        {
+            if (Session["EmailAddress"] == null) return RedirectToAction("Index", "Home");
+            string EmailAddress = Session["EmailAddress"].ToString();
+            var response = _userBll.VerifyOtp( EmailAddress, VerificationKey);
+            ViewBag.Success = response.Status;
+            ViewBag.Message = response.Message;
+            if (response.Status)
+            {
+                
+                return View();
+            }
+            return RedirectToAction("ForgotPassword", "User");
+        }
+        [HttpPost]
+        public ActionResult ConfirmResetPassword(string Password)
+        {
+            if (Session["EmailAddress"] == null) return RedirectToAction("Index", "Home");
+            string EmailAddress = Session["EmailAddress"].ToString();
+            var response = _userBll.ResetPassword(EmailAddress, Password);
+            ViewBag.Success = response.Status;
+            ViewBag.Message = response.Message;
+            if (response.Status)
+            {
+
+                return RedirectToAction("Index","Home");
+            }
+            return View("ResetPassword");
+        }
+        [HttpPost]
         public ActionResult Login(LoginDto loginDto)
         {
             var userRegResponse = _userBll.LoginUser(loginDto);
@@ -50,7 +93,7 @@ namespace PhonebookAppWebUI.Controllers
             {
                 ViewBag.Success = false;
                 ViewBag.Message = userRegResponse.Message;
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.Success = true;
             Session["UserId"] = userRegResponse.UserInfo.Id;
