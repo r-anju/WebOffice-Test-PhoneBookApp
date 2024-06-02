@@ -20,7 +20,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Hello "+Session["NickName"].ToString(),"Index","Contact")</li>
+                    <li>@Html.ActionLink("Hello " + Session["NickName"].ToString(), "Index", "Contact")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "User")</li>
                 </ul>
             </div>
@@ -35,7 +35,9 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/custom-validate")
     @RenderSection("scripts", required: false)
 </body>
 </html>

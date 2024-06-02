@@ -65,3 +65,64 @@ $('#loginForm').validate({
         }
     }
 });
+
+$('#createContact').validate({
+    errorClass: "text-danger",
+    rules: {
+
+        ContactName: {
+            required: true,
+        },
+        EmailAddress: {
+            required: true,
+            email: true,
+        },
+        PhoneNumber: {
+            required: true,
+
+        }
+    },
+    messages: {
+        ContactName: {
+            required: "Please enter contact name",
+        },
+        EmailAddress: {
+            required: "Enter your email address",
+            email: "Please enter a valid email address",
+        },
+        PhoneNumber: {
+            required: "Enter phone number",
+
+        }
+    }
+});
+$('#updateContact').validate({
+    errorClass: "text-danger",
+    rules: {
+
+        ContactName: {
+            required: true,
+        },
+        EmailAddress: {
+            required: true,
+            email: true,
+        },
+        PhoneNumber: {
+            required: true,
+
+        }
+    },
+    messages: {
+        ContactName: {
+            required: "Please enter contact name",
+        },
+        EmailAddress: {
+            required: "Enter your email address",
+            email: "Please enter a valid email address",
+        },
+        PhoneNumber: {
+            required: "Enter phone number",
+
+        }
+    }
+});

@@ -51,6 +51,29 @@ namespace PhonebookAppWebUI.Controllers
                 return RedirectToAction("Index");
             return View(contact);
         }
+        [HttpPost]
+        public ActionResult EditContact(long id, UpdateContactDto updateContactDto)
+        {
+            long userId = Convert.ToInt64(Session["UserId"]);
+            updateContactDto.UserReferenceId = userId;
+            updateContactDto.Id = id;
+            var response = _contactBll.UpdateContact(updateContactDto);
+            ViewBag.Success = response.Status;
+            ViewBag.Message = response.Message;
+            if (response.Status)
+                return RedirectToAction("Index", "Contact");
+            else
+            {
+                var contactDto = new ContactDto
+                {
+                    ContactName = updateContactDto.ContactName,
+                    EmailAddress = updateContactDto.EmailAddress,
+                    Id = updateContactDto.Id,
+                    PhoneNumber = updateContactDto.PhoneNumber,
+                };
+                return View("Edit", contactDto);
+            }
+        }
         public ActionResult Delete(int Id)
         {
             long userId = Convert.ToInt64(Session["UserId"]);

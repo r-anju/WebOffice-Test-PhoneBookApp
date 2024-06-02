@@ -50,7 +50,7 @@ namespace PhonebookAppWebUI.Controllers
             {
                 ViewBag.Success = false;
                 ViewBag.Message = userRegResponse.Message;
-                return View("Index","Home");
+                return RedirectToAction("Index","Home");
             }
             ViewBag.Success = true;
             Session["UserId"] = userRegResponse.UserInfo.Id;

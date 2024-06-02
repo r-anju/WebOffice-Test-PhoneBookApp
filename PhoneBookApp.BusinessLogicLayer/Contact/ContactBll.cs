@@ -129,7 +129,7 @@ namespace PhoneBookApp.BusinessLogicLayer
         {
             try
             {
-                var contactExist = _contactDal.FindBy(item => (bool)!item.IsDeleted && item.Id == updateContactDto.Id && (item.EmailAddress == updateContactDto.EmailAddress.Trim() || item.PhoneNumber == updateContactDto.PhoneNumber.Trim())).ToList();
+                var contactExist = _contactDal.FindBy(item => (bool)!item.IsDeleted && item.Id != updateContactDto.Id && (item.EmailAddress == updateContactDto.EmailAddress.Trim() || item.PhoneNumber == updateContactDto.PhoneNumber.Trim())).ToList();
                 if (contactExist != null && contactExist.Any())
                 {
                     var emailExist = contactExist.FirstOrDefault(x => x.EmailAddress == updateContactDto.EmailAddress);
